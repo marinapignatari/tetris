@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     context.scale(30, 30);
 
-    const grid = createMatrix(10, 20);
+    const arena = createMatrix(10, 20);
     const colors = [
         null,
         '#ff0d72',
@@ -16,9 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
         '#ffe138',
         '#3877ff'
     ];
-
-    const arena = createMatrix(10, 20);
-    let score = 0;
 
     const player = {
         pos: { x: 0, y: 0 },
@@ -237,4 +234,12 @@ document.addEventListener('DOMContentLoaded', () => {
             playerDrop();
         } else if (event.keyCode === 81) {
             playerRotate(-1);
-        } else if (event.keyCode === 87)
+        } else if (event.keyCode === 87) {
+            playerRotate(1);
+        }
+    });
+
+    playerReset();
+    updateScore();
+    update();
+});
